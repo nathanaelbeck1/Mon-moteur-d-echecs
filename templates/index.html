@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Moteur d'échecs</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+          href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+</head>
+<body>
+
+<h1 class="page-title">Jouer contre un ordinateur aux échecs</h1>
+
+<div class="container">
+    <div class="board-wrapper">
+        <div id="board"></div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Paramètres</h2>
+
+        <label for="depthSelect"><strong>Niveau IA :</strong></label>
+        <select id="depthSelect">
+            <option value="1">Profondeur 1</option>
+            <option value="2">Profondeur 2</option>
+            <option value="3">Profondeur 3</option>
+            <option value="4">Profondeur 4</option>
+        </select>
+
+        <button id="resetBtn">Réinitialiser</button>
+
+        <p id="status" class="info">Chargement...</p>
+        <p id="lastMove" class="info">Dernier coup : -</p>
+        <p id="eval" class="info">Évaluation : -</p>
+        <p id="thinking" class="info">Temps IA : -</p>
+        <p id="result" class="info"></p>
+
+        <h3>Historique</h3>
+        <div id="history">-</div>
+    </div>
+</div>
+
+<div class="footer-note">
+    <p>
+        <strong>Note :</strong> Ce moteur d’échecs a été développé et réalisé par Beck Nathanaël dans le cadre d’un mémoire.<br>
+        À noter qu'augmenter la profondeur améliore la qualité des coups, mais rallonge le temps de réflexion de l’IA.<br>
+        Je remercie Jeremy Rosset pour son aide lors de la réalisation de ce travail.
+    </p>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
